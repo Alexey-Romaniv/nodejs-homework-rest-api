@@ -7,6 +7,10 @@ const { handleMongooseError } = require("../helpers");
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: [true, "Set password for user"],
@@ -38,6 +42,7 @@ const userSchema = new Schema(
 userSchema.post("save", handleMongooseError);
 
 const schema = Joi.object({
+  name: Joi.String().required(),
   email: Joi.string().email().required(),
   password: Joi.string().required(),
   subscription: Joi.string(),
