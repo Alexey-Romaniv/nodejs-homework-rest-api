@@ -33,7 +33,7 @@ const register = async (req, res) => {
   const verifyEmail = {
     to: email,
     subject: "Verify your email",
-    html: `<a tarhe="_blank" href="${baseUrl}/api/users/verify/${verificationToken}">Clicl to verify email</a>`,
+    html: `<a target="_blank" href="${baseUrl}/api/users/verify/${verificationToken}">Clicl to verify email</a>`,
   };
   await sendEmail(verifyEmail);
 
