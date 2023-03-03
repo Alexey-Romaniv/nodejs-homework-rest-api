@@ -48,7 +48,10 @@ const schema = Joi.object({
   subscription: Joi.string(),
   avatarURL: Joi.string(),
 });
-
+const loginSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+});
 const updateSchema = Joi.object({
   subscription: Joi.string().allow("starter", "pro", "business"),
 });
@@ -58,6 +61,7 @@ const verifyEmailSchema = Joi.object({
 });
 const schemas = {
   schema,
+    loginSchema,
   updateSchema,
   verifyEmailSchema,
 };
